@@ -4,9 +4,8 @@ import axios from 'axios';
 import Footer from './footer';
 import Navbar from './navbar';
 import bgpw from '../assets/bgpw.svg';
-import pkmimg from '../assets/pkmimg.png'
-
-
+import pkmimg from '../assets/pkmimg.png';
+import beritaCard from './beritaCard.js';
 
 
 const Container = styled.div`
@@ -92,9 +91,9 @@ class Berita extends Component{
         };
     }
 
-    componenDidMount (){
+    componentDidMount (){
         axios
-            .get('http://localhost:3001/berita')
+            .get('https://besm.herokuapp.com/berita')
                 .then(res=>{
                     this.setState = ({
                         berita: res.data
@@ -106,6 +105,12 @@ class Berita extends Component{
     }
 
     render(){
+       const beritaList = () => {
+            return this.state.berita.map((aBerita, k)=>{
+                return <beritaCard berita={aBerita} k={k}/>
+            })
+        }
+
         return(
             <Container>
                 <Navbar/>
@@ -132,12 +137,10 @@ class Berita extends Component{
                     <ContentContainer>
                         <ContentBox>
                             <HeaderContent>Berita Utama</HeaderContent>
-                            {/* <li>
-                                {this.berita}
-                            </li> */}
+                           
                             <HeaderContent>Berita Terbaru</HeaderContent>
                             <Content>
-                                
+                                {beritaList()}
                             </Content>
                         </ContentBox>
                     </ContentContainer>
