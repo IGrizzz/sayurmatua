@@ -19,6 +19,9 @@ font-size:32px;
 color:black;
 background: white;
 text-decoration: none;
+@media only screen and (max-width: 480px){
+    font-size: 24px;
+}
 `
 const Container = styled.div`
 display: flex;

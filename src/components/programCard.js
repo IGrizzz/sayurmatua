@@ -36,7 +36,6 @@ flex-direction : column;
 @media only screen and (max-width: 480px){
     margin-left: 5px;
 }
-}
 `
 
 const Desc = styled.p`
@@ -52,6 +51,7 @@ height: 3em;
     font-size: 18px;
     text-align: justify;
 }
+
 `
 const Judul = styled.h3`
 font-size: 32px;
@@ -78,15 +78,15 @@ color: white;
 text-align: center;
 `
 
-function BeritaCard(props){
+function programCard(props){
 const Berita = (props) => {  
-    const databerita = props.props;
-    console.log(databerita)
+    const dataprogram = props.props;
+    console.log(dataprogram)
     
-    if(databerita.length > 0){
+    if(dataprogram.length > 0){
             return(
-                databerita.map((card, k)=>{
-                    const link =  'id?id=' + card._id;
+                dataprogram.map((card, k)=>{
+                    const link =  card._id;
                     return(
                         <Box key={k}>
                             <Img src={card.gambar} />
@@ -117,4 +117,4 @@ const Berita = (props) => {
 }
 
 
-export default BeritaCard;
+export default programCard;

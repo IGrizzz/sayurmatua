@@ -14,18 +14,48 @@ position: sticky    ;
 width: 100%;
 height:300px;
 top: 100vh;
+@media only screen and (max-width: 480px){
+    flex-direction: column;
+}
 `
 const ContentBox = styled.div`
-margin: 32px;`
+margin: 32px;
+@media only screen and (max-width: 480px){
+    margin: 6px;
+}`
 
 const Navigasi = styled.div`
 display: flex;
 flex-direction:column;
 padding-top: 11px;
+@media only screen and (max-width: 480px){
+    display: none;
+}
+`
+const TextMitra = styled.h1`
+@media only screen and (max-width: 480px){
+    font-size: 20px;
+    padding-left: 12px;
+}`
+
+const TextHubungi = styled.h1`
+@media only screen and (max-width: 480px){
+    font-size: 20px;
+    padding-left: 12px;
+}`
+
+const TextNavigasi = styled.h1`
+@media only screen and (max-width: 480px){
+    display: none;
+}
 `
 
 const Hubungikami = styled.div`
-display:flex;`
+display:flex;
+@media only screen and (max-width: 480px){
+    font-size: 12px;
+    padding-left: 12px;
+}`
 
 const Contacticon = styled.img`
 width:20px;
@@ -46,7 +76,7 @@ function Footer (){
         <Container className="container">
            
             <ContentBox className="hubungiKami">
-                <h1>Hubungi Kami</h1>
+                <TextHubungi>Hubungi Kami</TextHubungi>
                 <Hubungikami>
                     <Contacticon src={waImg} alt="walogo"></Contacticon>
                     <p>082273287550</p>
@@ -58,14 +88,14 @@ function Footer (){
 
             </ContentBox>
             <ContentBox className="mitraKami">
-                <h1>Mitra Kami</h1>
+                <TextMitra>Mitra Kami</TextMitra>
                 <Hubungikami>
                     <p>Universitas Sumatera Utara</p>
                 </Hubungikami>
 
             </ContentBox>
             <ContentBox className="Navigasi">
-                <h1>Navigasi</h1>
+                <TextNavigasi>Navigasi</TextNavigasi>
                 <Navigasi>
                     <Link href="#">Halaman Utama</Link>
                     <Link href="#">Program Desa</Link>

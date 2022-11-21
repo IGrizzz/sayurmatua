@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import { React, useEffect, useState } from 'react';
 import styled from 'styled-components'
 import axios from 'axios';
 import Footer from './footer';
 import Navbar from './navbar';
 import bgpw from '../assets/bgpw.svg';
-import BeritaCard from './beritaCard.js';
+import AdminBeritaCard from './adminberitaCard.js';
 
 
 const Container = styled.div`
@@ -27,37 +27,15 @@ background: url(${bgpw}) no-repeat;
 border-radius: 30px;
 width: 1262px;
 height: 230px;
-@media only screen and (max-width: 480px){
-    height: 200px;
-}
-`
-const DescContainer = styled.div`
-display: flex;
-justify-content: center;
-column-gap: 12px;
-`
-
-const Img = styled.img`
-width: 642px;
-height: 489px;
-border-radius:30;`
-
-const DescBox = styled.div`
 `
 
 const Header = styled.p`
 font-family: Raleway;
-
+width: 599px;
+height: 140px;
 font-weight: bold;
 font-size: 60px;
 `
-
-const Desc = styled.p`
-font-family: Raleway;
-width: 575px;
-height: 213px;
-font-weight: semi-bold;
-font-size: 28px;`
 
 const TextBox = styled.div`
 padding-left: 32px;
@@ -65,16 +43,10 @@ font-family: Raleway;
 font-size: 35px;
 margin: -4px;
 color: white;
-@media only screen and (max-width: 480px){
-    font-size: 24px;
-}
 `
 
 const TextBox2 = styled(TextBox)`
 font-size: 32px;
-@media only screen and (max-width: 480px){
-    font-size: 24px;
-}
 `
 const ContentContainer = styled.div`
 display: flex;
@@ -84,15 +56,13 @@ const ContentBox = styled.div`
 `
 const HeaderContent = styled(Header)`
 padding-right: 660px;
-@media only screen and (max-width:480px){
-    padding-right: 0px;
-    font-size: 32px;
-    display: flex;
-    justify-content: center;
-}
 `
 
-function Berita () {
+
+const Content = styled.div``
+
+
+function AdminBerita () {
     const [berita, setBerita] = useState('');
     
     useEffect(()=>{
@@ -129,8 +99,11 @@ function Berita () {
                     <br/>
                     <ContentContainer>
                         <ContentBox>
+                        
                             <HeaderContent>Berita Terbaru</HeaderContent>
-                                <BeritaCard props={berita}/>
+                            <Content>
+                                <AdminBeritaCard props={berita}/>
+                            </Content>
                         </ContentBox>
                     </ContentContainer>
                 </MainContent>
@@ -140,4 +113,4 @@ function Berita () {
         
     }
 
-export default Berita;
+export default AdminBerita;

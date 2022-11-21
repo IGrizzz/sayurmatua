@@ -20,14 +20,22 @@ flex: 1;`
 
 const Container = styled.div`
 display: flex;
-justify-content: center;    
+justify-content: center;
+@media only screen and (max-width: 500px){
+    flex-direction: column;
+    align-items: center;
+}    
 `
 
 const ButtonContainer = styled.div`
 display: flex;
 justify-content: center;
 column-gap: 18px;
-padding-left:1000px; `
+padding-left:1000px; 
+@media only screen and (max-width: 480px){
+    padding-left: 0px;
+    
+}`
 
 const ButtonLogo = styled.a`
 cursor:pointer;
@@ -37,6 +45,10 @@ width:145px;
 border: none;
 align-items: center; 
 margin-top: 20px;
+@media only screen and (max-width: 480px){
+    width: 93px;
+    heigt: 75px
+}
 `
 
 const ButtonLogo1 = styled(ButtonLogo)`
@@ -44,6 +56,10 @@ background: url(${logoUSU}) no-repeat;
 height:90px;
 width:90px;
 margin-top: 12px;
+@media only screen and (max-width: 480px){
+    width: 65px;
+    height: 65px;
+}
 `
 
 const Mini = styled.p`
@@ -51,30 +67,43 @@ font-family: Raleway;
 font-size: 30px;
 width: 300px;
 padding-left: 5px;
+@media only screen and (max-width: 480px){
+    font-size:20px;
+    padding-left: 0;
+}
 `
 
 const Med = styled(Mini)`
 font-size: 40px;
 width: 550px;
 padding-left: 0.2em;
+@media only screen and (max-width: 480px){
+    font-size: 23px;
+    padding-left: 0;
+}
   
 `
 
 const Homepage = styled(Link)`
 cursor: pointer;
-margin: 15px;
+margin: 5px;
 padding-left: 24px;
 padding-top: 32px;
 color: white;
 border: none;
 background: url(${bgsm}) no-repeat;
-width: 806px;
-height: 429px;
+width: 1240px;
+height: 200px;
 font-family: Raleway;
 font-weight: bold;
 font-size: 60px;
 border-radius: 30px;
-text-decoration: none;`
+text-decoration: none;
+@media only screen and (max-width: 480px){
+    width: 320px;
+    font-size: 35px;
+}
+`
 
 const SHomepage = styled(Homepage)`
 background: url(${bgpo}) no-repeat;
@@ -87,13 +116,20 @@ background: url(${bgp}) no-repeat;
 font-size: 50px;
 width: 386px;
 height: 293px;
+@media only screen and (max-width: 480px){
+    width:320px;
+    height: 110px;
+}
 `
 
 const ESHomepage1 = styled(ESHomepage)`
 background: url(${bgb}) no-repeat;`
 
 const ESHomepage2 = styled(ESHomepage)`
-background: url(${bgpu}) no-repeat;`
+background: url(${bgpu}) no-repeat;
+@media only screen and (max-width: 480px){
+    font-size: 43px;
+}`
 
 class HomePage extends Component {
     render(){
@@ -109,11 +145,9 @@ class HomePage extends Component {
                         <Homepage to="/">
                                 <Mini>Program Desa Binaan</Mini>
                                 Sayur Matua
-                                <br></br>
-                                <br></br>
                                 <Med>Universitas Sumatera Utara</Med>
                         </Homepage>
-                        <SHomepage to ="/pengajuan">Pengaduan Online</SHomepage>
+                        {/* <SHomepage to ="/pengajuan">Pengaduan Online</SHomepage> */}
                     
                     </Container>
                     <Container>

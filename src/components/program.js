@@ -1,15 +1,17 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components'
 import Footer from './footer';
 import Navbar from './navbar';
 import bgpw from '../assets/bgpw.svg';
 import pkmimg from '../assets/pkmimg.png'
-
+import axios from 'axios';
+import programCard from './programCard.js'
 
 const Container = styled.div`
 display: flex;
 flex-direction: column;
 min-height: 100vh;
+
 `
 
 const MainContent = styled.div`
@@ -62,6 +64,9 @@ font-family: Raleway;
 font-size: 35px;
 margin: -4px;
 color: white;
+@media only screen and (max-width: 480px){
+    font-size: 24px;
+}
 `
 
 const TextBox2 = styled(TextBox)`
@@ -81,8 +86,25 @@ padding-right: 660px;
 const Content = styled.div``
 
 
-class Program extends Component{
-    render(){
+function Program () {
+    const [program, setProgram] = useState('')
+
+    useEffect(()=>{
+        getData()
+    }, [])
+
+    const getData = ()=>{
+        axios.get('http://besm.herokuapp.com/program')
+            .then((response)=>{
+                const dataProgram = response;
+                setProgram(dataProgram)
+                console.log(program)
+            })
+                .catch((err)=>{
+                    console.log(err)
+                })
+    }
+    
         return(
             <Container>
                 <Navbar/>
@@ -110,7 +132,7 @@ class Program extends Component{
                         <ContentBox>
                             <HeaderContent>Kegiatan Pengabdian</HeaderContent>
                             <Content>
-
+                                <programCard props={program}/>
                             </Content>
                         </ContentBox>
                     </ContentContainer>
@@ -119,7 +141,7 @@ class Program extends Component{
             </Container>
         )
         
-    }
+    
 }
 
 export default Program;
