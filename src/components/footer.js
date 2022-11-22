@@ -95,14 +95,14 @@ function Footer (){
 
             </ContentBox>
             <ContentBox className="Navigasi">
-                <TextNavigasi>Navigasi</TextNavigasi>
+                {/* <TextNavigasi>Navigasi</TextNavigasi>
                 <Navigasi>
                     <Link href="#">Halaman Utama</Link>
                     <Link href="#">Program Desa</Link>
                     <Link href="#">Berita Desa</Link>
                     <Link href="#">Profil Desa</Link>   
                     <Link href="#">Pengajuan Online</Link>
-                </Navigasi>
+                </Navigasi> */}
 
             </ContentBox>
             <div>
